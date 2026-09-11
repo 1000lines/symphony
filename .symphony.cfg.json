@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "symphony-repository/v1",
+  "linear": {
+    "teamKey": "100"
+  },
+  "workingDirectory": ".",
+  "instructions": [
+    "SYMPHONY.md",
+    "elixir/AGENTS.md"
+  ],
+  "commands": {
+    "build": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise exec -- mix build"
+      ]
+    ],
+    "test": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise exec -- make all"
+      ]
+    ],
+    "setup": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise install && mise exec -- mix setup"
+      ]
+    ]
+  },
+  "ci": {
+    "requiredChecks": []
+  }
+}
