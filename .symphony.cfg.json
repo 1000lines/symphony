@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "symphony-repository/v1",
+  "linear": {
+    "teamKey": "100"
+  },
+  "workingDirectory": ".",
+  "instructions": [
+    "SYMPHONY.md",
+    "elixir/AGENTS.md"
+  ],
+  "commands": {
+    "build": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise exec -- mix build"
+      ]
+    ],
+    "test": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise exec -- make all"
+      ]
+    ],
+    "setup": [
+      [
+        "bash",
+        "-lc",
+        "cd elixir && mise install && mise exec -- mix setup"
+      ]
+    ]
+  },
+  "ci": {
+    "requiredChecks": [
+      {
+        "name": "make-all",
+        "workflow": ".github/workflows/make-all.yml",
+        "appId": 15368
+      },
+      {
+        "name": "validate-pr-description",
+        "workflow": ".github/workflows/pr-description-lint.yml",
+        "appId": 15368
+      }
+    ]
+  }
+}
