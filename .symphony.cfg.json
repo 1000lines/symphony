@@ -32,6 +32,17 @@
     ]
   },
   "ci": {
-    "requiredChecks": []
+    "requiredChecks": [
+      {
+        "name": "make-all",
+        "workflow": ".github/workflows/make-all.yml",
+        "appId": 15368
+      },
+      {
+        "name": "validate-pr-description",
+        "workflow": ".github/workflows/pr-description-lint.yml",
+        "appId": 15368
+      }
+    ]
   }
 }
